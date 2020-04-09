@@ -1,9 +1,13 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import phoneBookReducer from "../features/phoneBook/phoneBookSlice";
+import loadingReducer from "../features/phoneBook/loading/loadingSlice";
+import errorReducer from "../features/phoneBook/error/errorSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    phoneBook: phoneBookReducer,
+    loading: loadingReducer,
+    error: errorReducer,
   },
 });
 
