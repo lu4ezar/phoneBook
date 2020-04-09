@@ -1,7 +1,7 @@
 import React from "react";
-import { Phone as IPhone } from "../../interfaces";
+import { PhoneNumber } from "../../interfaces";
 
-const Phone = ({ id, name, phone, email }: IPhone) => (
+const Phone = ({ name, phone, email }: PhoneNumber) => (
   <li>
     {phone} {name} {email}
   </li>
