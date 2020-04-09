@@ -1,13 +1,11 @@
 import React, { useState, SyntheticEvent } from "react";
 import Input from "../input";
-import List from "../list";
-import Form from "../form";
+import List from "../../features/phoneBook/list";
+import Form from "../../features/phoneBook/form";
 import { StyledApp } from "./styled";
-import { PhoneBook } from "../../interfaces";
 
 const App = () => {
   const [value, setValue] = useState("");
-  const [list, setList] = useState<PhoneBook>([]);
 
   const handleChange = (e: SyntheticEvent) => {
     setValue((e.target as HTMLInputElement).value);
@@ -20,7 +18,7 @@ const App = () => {
       </header>
       <main>
         <Input value={value} onChange={handleChange} />
-        <List list={list} />
+        <List />
         <Form />
       </main>
     </StyledApp>
