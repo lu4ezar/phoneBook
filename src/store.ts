@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import phoneBookReducer from "../features/phoneBook/phoneBookSlice";
-import loadingReducer from "../features/phoneBook/loading/loadingSlice";
-import errorReducer from "../features/phoneBook/error/errorSlice";
+import phoneBookReducer from "./features/phoneBook/phoneBookSlice";
+import loadingReducer from "./features/phoneBook/loading/loadingSlice";
+import errorReducer from "./features/phoneBook/error/errorSlice";
 
 export const store = configureStore({
   reducer: {
