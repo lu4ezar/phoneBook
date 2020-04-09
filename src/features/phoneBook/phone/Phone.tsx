@@ -1,5 +1,5 @@
 import React from "react";
-import { PhoneNumber } from "../../interfaces";
+import { PhoneNumber } from "../../../interfaces";
 
 const Phone = ({ name, phone, email }: PhoneNumber) => (
   <li>

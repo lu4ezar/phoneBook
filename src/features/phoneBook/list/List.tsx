@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Phone from "../../../components/phone";
+import Phone from "../phone";
 import { fetchPhoneBook, selectPhoneNumbers } from "../phoneBookSlice";
 
 const List = () => {
