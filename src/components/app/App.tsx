@@ -1,6 +1,7 @@
 import React, { useState, SyntheticEvent } from "react";
 import Input from "../input";
 import List from "../list";
+import { StyledApp } from "./styled";
 import { PhoneBook } from "../../interfaces";
 
 const App = () => {
@@ -12,13 +13,15 @@ const App = () => {
   };
 
   return (
-    <>
-      <header>Phone Book</header>
+    <StyledApp>
+      <header>
+        <h1>Phone Book</h1>
+      </header>
       <main>
         <Input value={value} onChange={handleChange} />
         <List list={list} />
       </main>
-    </>
+    </StyledApp>
   );
 };
 
