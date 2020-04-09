@@ -1,6 +1,7 @@
 import React, { useState, SyntheticEvent } from "react";
 import Input from "../input";
 import List from "../list";
+import Form from "../form";
 import { StyledApp } from "./styled";
 import { PhoneBook } from "../../interfaces";
 
@@ -20,6 +21,7 @@ const App = () => {
       <main>
         <Input value={value} onChange={handleChange} />
         <List list={list} />
+        <Form />
       </main>
     </StyledApp>
   );
