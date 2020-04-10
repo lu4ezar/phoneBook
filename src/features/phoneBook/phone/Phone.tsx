@@ -3,7 +3,11 @@ import { PhoneProps } from "../../../interfaces";
 
 const Phone = ({ id, name, phone, email, handleDelete }: PhoneProps) => (
   <li>
-    {phone} {name} {email}
+    <span>{phone}</span>
+    <span>{name}</span>
+    <span>{email}</span>
+    <button onClick={() => handleDelete(id)}>Delete</button>
+    <br />
   </li>
 );
 
