@@ -1,5 +1,5 @@
 export interface PhoneNumber {
-  id?: string;
+  id?: Readonly<string>;
   name: string;
   phone: string;
   email: string;
