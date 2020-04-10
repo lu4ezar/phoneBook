@@ -11,4 +11,7 @@ export const StyledApp = styled.div`
     width: 100vw;
     align-self: center;
   }
+  & main {
+    padding: 2em;
+  }
 `;
