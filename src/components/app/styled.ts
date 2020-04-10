@@ -12,6 +12,6 @@ export const StyledApp = styled.div`
     align-self: center;
   }
   & main {
-    padding: 2em;
+    padding: 2em 0;
   }
 `;
