@@ -12,3 +12,7 @@ export interface PhoneBook {
 export type Loading = "idle" | "pending";
 
 export type Error = string | null;
+
+export interface PhoneProps extends PhoneNumber {
+  handleDelete: (id: PhoneNumber["id"]) => void;
+}

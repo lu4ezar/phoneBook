@@ -1,7 +1,7 @@
 import React from "react";
-import { PhoneNumber } from "../../../interfaces";
+import { PhoneProps } from "../../../interfaces";
 
-const Phone = ({ name, phone, email }: PhoneNumber) => (
+const Phone = ({ id, name, phone, email, handleDelete }: PhoneProps) => (
   <li>
     {phone} {name} {email}
   </li>
