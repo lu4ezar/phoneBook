@@ -1,18 +1,24 @@
+export type PhoneNumberId = Readonly<string>;
+
 export interface PhoneNumber {
-  id?: Readonly<string>;
+  id?: PhoneNumberId;
   name: string;
   phone: string;
   email: string;
 }
 
 export interface PhoneBook {
-  [id: string]: PhoneNumber;
+  [id: string]: PhoneNumber | null;
 }
 
 export type Loading = "idle" | "pending";
 
 export type Error = string | null;
 
-export interface PhoneProps extends PhoneNumber {
-  handleDelete: (id: PhoneNumber["id"]) => void;
+export interface PhoneBookState {
+  data: PhoneBook;
+  loading: Loading;
+  error: Error;
 }
+
+export type Editing = PhoneNumberId | null;
