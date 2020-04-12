@@ -52,6 +52,7 @@ const List = () => {
           <Form
             key={id}
             data={rest}
+            isEditing
             onCancel={handleCancel}
             onSubmit={(data) => handleSubmit(data, id)}
           />

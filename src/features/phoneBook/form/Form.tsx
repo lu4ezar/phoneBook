@@ -20,8 +20,12 @@ const reducer = (state: State, { field, value, type }: Reducer) => {
   };
 };
 
-const Form = (props: Props) => {
-  const { data = initialState, onSubmit, onCancel } = props;
+const Form = ({
+  data = initialState,
+  isEditing = false,
+  onSubmit,
+  onCancel,
+}: Props) => {
   const [state, dispatch] = useReducer(reducer, data);
   const { name, phone, email } = state;
   const loading = useSelector(selectLoading);
@@ -36,7 +40,6 @@ const Form = (props: Props) => {
     dispatch({ type: "reset" });
   };
 
-  const isEditing = !!props.data;
   const submitText =
     loading === "pending"
       ? "Wait..."

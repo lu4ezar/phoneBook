@@ -10,6 +10,7 @@ export type State = Omit<PhoneNumber, "id">;
 
 export interface Props {
   data?: PhoneNumber;
+  isEditing?: boolean;
   onSubmit: (data: PhoneNumber) => void;
   onCancel?: () => void;
 }
