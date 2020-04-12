@@ -1,14 +1,18 @@
 import React from "react";
-import { PhoneProps } from "../../../interfaces";
+import { StyledLi } from "./styled";
+import { Props } from "../../../interfaces/phone";
 
-const Phone = ({ id, name, phone, email, handleDelete }: PhoneProps) => (
-  <li>
-    <span>{phone}</span>
-    <span>{name}</span>
-    <span>{email}</span>
-    <button onClick={() => handleDelete(id)}>Delete</button>
-    <br />
-  </li>
-);
+const Phone = ({ data, onDelete, onEdit }: Props) => {
+  const { phone, name, email } = data;
+  return (
+    <StyledLi>
+      <span>{phone}</span>
+      <span>{name}</span>
+      <span>{email}</span>
+      <button onClick={onDelete}>Delete</button>
+      <button onClick={onEdit}>Edit</button>
+    </StyledLi>
+  );
+};
 
 export default Phone;
