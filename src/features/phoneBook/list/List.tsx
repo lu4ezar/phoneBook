@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Phone from "../phone";
 import Form from "../form";
+import { selectPhoneBook } from "../phoneBookSlice";
 import {
   fetchPhoneBook,
-  selectPhoneBook,
   deletePhoneNumber,
   updatePhoneNumber,
 } from "../asyncThunks";
