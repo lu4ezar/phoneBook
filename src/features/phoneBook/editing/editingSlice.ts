@@ -12,6 +12,6 @@ export const editingId = createSlice({
 });
 
 export const { setEditingId, dropEditingId } = editingId.actions;
-export const editingSelector = (state: RootState) => state.editingId;
+export const selectEditingId = (state: RootState) => state.editingId;
 
 export default editingId.reducer;

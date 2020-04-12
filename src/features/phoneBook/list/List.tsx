@@ -9,7 +9,7 @@ import {
   updatePhoneNumber,
 } from "../asyncThunks";
 import {
-  editingSelector,
+  selectEditingId,
   setEditingId,
   dropEditingId,
 } from "../editing/editingSlice";
@@ -18,6 +18,7 @@ import { PhoneNumber, PhoneNumberId } from "../../../interfaces";
 
 const List = () => {
   const { phoneBook, loading, error } = useSelector(selectPhoneBookState);
+  const editingId = useSelector(selectEditingId);
   const dispatch = useDispatch();
 
   useEffect(() => {
