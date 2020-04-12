@@ -1,17 +1,16 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import phoneBookReducer from "./features/phoneBook/phoneBookSlice";
-import loadingReducer from "./features/phoneBook/loading/loadingSlice";
-import errorReducer from "./features/phoneBook/error/errorSlice";
+import editingIdReducer from "./features/phoneBook/editing/editingSlice";
 
 export const store = configureStore({
   reducer: {
     phoneBook: phoneBookReducer,
-    loading: loadingReducer,
-    error: errorReducer,
+    editingId: editingIdReducer,
   },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,
