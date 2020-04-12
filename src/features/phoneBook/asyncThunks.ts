@@ -4,7 +4,7 @@ import { PhoneNumber, PhoneNumberId } from "../../interfaces";
 
 export const fetchPhoneBook = createAsyncThunk(
   "phoneBook/fetchPhoneBook",
-  async (state) => {
+  async () => {
     const response = await api.fetchPhoneBook();
     return response.json();
   }
@@ -12,7 +12,7 @@ export const fetchPhoneBook = createAsyncThunk(
 
 export const createPhoneNumber = createAsyncThunk(
   "phoneBook/createPhoneNumber",
-  async (data: PhoneNumber, thunkAPI) => {
+  async (data: PhoneNumber) => {
     try {
       const response = await api.createPhoneNumber(data);
       const res = await response.json();
@@ -28,7 +28,7 @@ export const createPhoneNumber = createAsyncThunk(
 
 export const deletePhoneNumber = createAsyncThunk(
   "phoneBook/deletePhoneNumber",
-  async (id: PhoneNumberId, thunkAPI) => {
+  async (id: PhoneNumberId) => {
     await api.deletePhoneNumber(id);
     return id;
   }
@@ -36,7 +36,7 @@ export const deletePhoneNumber = createAsyncThunk(
 
 export const updatePhoneNumber = createAsyncThunk(
   "phoneBook/updatePhoneNumber",
-  async (data: PhoneNumber, thunkAPI) => {
+  async (data: PhoneNumber) => {
     await api.updatePhoneNumber(data);
     return data;
   }
