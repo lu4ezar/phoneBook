@@ -3,12 +3,20 @@ import Input from "../input";
 import List from "../../features/phoneBook/list";
 import Form from "../../features/phoneBook/form";
 import { StyledApp } from "./styled";
+import { useDispatch } from "react-redux";
+import { createPhoneNumber } from "../../features/phoneBook/phoneBookSlice";
+import { PhoneNumber } from "../../interfaces";
 
 const App = () => {
   const [value, setValue] = useState("");
-
   const handleChange = (e: SyntheticEvent) => {
     setValue((e.target as HTMLInputElement).value);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (data: PhoneNumber) => {
+    dispatch(createPhoneNumber(data));
   };
 
   return (
@@ -19,7 +27,7 @@ const App = () => {
       <main>
         <Input value={value} onChange={handleChange} />
         <List />
-        <Form />
+        <Form onSubmit={handleSubmit} />
       </main>
     </StyledApp>
   );
