@@ -1,10 +1,10 @@
 import React from "react";
 import Input from "../input";
-import List from "../../features/phoneBook/list";
-import Form from "../../features/phoneBook/form";
+import List from "../list";
+import Form from "../form";
 import { StyledApp } from "./styled";
 import { useDispatch } from "react-redux";
-import { createPhoneNumber } from "../../features/phoneBook/asyncThunks";
+import { createPhoneNumber } from "../../redux/asyncThunks";
 import { PhoneNumber } from "../../interfaces";
 
 const App = () => {

@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
-import { PhoneNumber } from "../../interfaces";
+import { RootState } from "./store";
+import { PhoneNumber } from "../interfaces";
 
 const selectPhoneNumbers = (state: RootState) => state.phoneBook.phoneBook;
 

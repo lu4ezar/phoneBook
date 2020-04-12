@@ -6,15 +6,15 @@ import {
   selectPhoneBookState,
   selectFiltered,
   selectEditingId,
-} from "../selectors";
+} from "../../redux/selectors";
 import {
   fetchPhoneBook,
   deletePhoneNumber,
   updatePhoneNumber,
-} from "../asyncThunks";
-import { setEditingId, dropEditingId } from "../editing/editingSlice";
+} from "../../redux/asyncThunks";
+import { setEditingId, dropEditingId } from "../../redux/slices/editingSlice";
 import { StyledUl } from "./styled";
-import { PhoneNumber, PhoneNumberId } from "../../../interfaces";
+import { PhoneNumber, PhoneNumberId } from "../../interfaces";
 
 const List = () => {
   const { loading, error } = useSelector(selectPhoneBookState);

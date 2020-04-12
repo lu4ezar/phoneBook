@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { searchSlice } from "../../features/search/searchSlice";
-import { selectSearchString } from "../../features/phoneBook/selectors";
+import { searchSlice } from "../../redux/slices/searchSlice";
+import { selectSearchString } from "../../redux/selectors";
 
 const Input = () => {
   const dispatch = useDispatch();

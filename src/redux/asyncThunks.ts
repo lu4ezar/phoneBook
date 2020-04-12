@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import * as api from "../../api";
-import { PhoneNumber, PhoneNumberId, PhoneBook } from "../../interfaces";
+import * as api from "../api";
+import { PhoneNumber, PhoneNumberId, PhoneBook } from "../interfaces";
 
 export const fetchPhoneBook = createAsyncThunk(
   "phoneBook/fetchPhoneBook",

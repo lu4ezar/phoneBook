@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledLi } from "./styled";
-import { Props } from "../../../interfaces/phone";
+import { Props } from "../../interfaces/phone";
 
 const Phone = ({ data, onDelete, onEdit }: Props) => {
   const { phone, name, email } = data;
