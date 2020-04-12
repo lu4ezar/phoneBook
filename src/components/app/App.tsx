@@ -1,4 +1,4 @@
-import React, { useState, SyntheticEvent } from "react";
+import React from "react";
 import Input from "../input";
 import List from "../../features/phoneBook/list";
 import Form from "../../features/phoneBook/form";
@@ -8,13 +8,7 @@ import { createPhoneNumber } from "../../features/phoneBook/asyncThunks";
 import { PhoneNumber } from "../../interfaces";
 
 const App = () => {
-  const [value, setValue] = useState("");
-  const handleChange = (e: SyntheticEvent) => {
-    setValue((e.target as HTMLInputElement).value);
-  };
-
   const dispatch = useDispatch();
-
   const handleSubmit = (data: PhoneNumber) => {
     dispatch(createPhoneNumber(data));
   };
@@ -25,7 +19,7 @@ const App = () => {
         <h1>Phone Book</h1>
       </header>
       <main>
-        <Input value={value} onChange={handleChange} />
+        <Input />
         <List />
         <Form onSubmit={handleSubmit} />
       </main>
