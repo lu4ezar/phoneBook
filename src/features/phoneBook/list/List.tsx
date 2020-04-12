@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Phone from "../phone";
 import Form from "../form";
-import { selectPhoneBook } from "../phoneBookSlice";
+import { selectPhoneBookState } from "../phoneBookSlice";
 import {
   fetchPhoneBook,
   deletePhoneNumber,
@@ -17,8 +17,7 @@ import { StyledUl } from "./styled";
 import { PhoneNumber, PhoneNumberId } from "../../../interfaces";
 
 const List = () => {
-  const { data, loading, error } = useSelector(selectPhoneBook);
-  const editingId = useSelector(editingSelector);
+  const { phoneBook, loading, error } = useSelector(selectPhoneBookState);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,8 +27,8 @@ const List = () => {
     };
   }, [dispatch]);
 
-  const handleSubmit = (data: PhoneNumber) => {
-    dispatch(updatePhoneNumber(data));
+  const handleSubmit = (data: PhoneNumber, id: PhoneNumberId) => {
+    dispatch(updatePhoneNumber({ ...data, id }));
     dispatch(dropEditingId());
   };
 
@@ -47,22 +46,22 @@ const List = () => {
 
   return (
     <StyledUl>
-      {Object.keys(data).map((id) =>
+      {phoneBook.map(({ id, ...rest }) =>
         id === editingId ? (
           <Form
             key={id}
-            data={data[id] as PhoneNumber}
+            data={rest}
             onCancel={handleCancel}
-            onSubmit={handleSubmit}
+            onSubmit={(data) => handleSubmit(data, id)}
           />
-        ) : data[id] ? (
+        ) : (
           <Phone
             key={id}
-            data={data[id] as PhoneNumber}
-            onDelete={(e) => handleDelete(id)}
-            onEdit={(e) => handleEdit(id)}
+            data={rest}
+            onDelete={() => handleDelete(id as PhoneNumberId)}
+            onEdit={() => handleEdit(id as PhoneNumberId)}
           />
-        ) : null
+        )
       )}
       {loading === "pending" && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}

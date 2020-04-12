@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
-import { PhoneBook, PhoneBookState, PhoneNumberId } from "../../interfaces";
+import { PhoneBook, PhoneBookState } from "../../interfaces";
 import {
   fetchPhoneBook,
   createPhoneNumber,
@@ -9,7 +9,7 @@ import {
 } from "./asyncThunks";
 
 const initialState: PhoneBookState = {
-  data: {} as PhoneBook,
+  phoneBook: [] as PhoneBook,
   loading: "idle",
   error: null as PhoneBookState["error"],
 };
@@ -26,7 +26,7 @@ export const phoneBookSlice = createSlice({
       })
       .addCase(fetchPhoneBook.fulfilled, (state, action) => {
         state.loading = "idle";
-        state.data = { ...action.payload };
+        state.phoneBook = action.payload;
       })
       .addCase(createPhoneNumber.pending, (state, action) => {
         state.loading = "pending";
@@ -36,7 +36,7 @@ export const phoneBookSlice = createSlice({
         state.loading = "idle";
         action.payload.error
           ? (state.error = action.payload.error)
-          : (state.data[action.payload.id as PhoneNumberId] = {
+          : state.phoneBook.push({
               ...action.payload,
             });
       })
@@ -46,7 +46,9 @@ export const phoneBookSlice = createSlice({
       })
       .addCase(deletePhoneNumber.fulfilled, (state, action) => {
         state.loading = "idle";
-        state.data[action.payload] = null;
+        state.phoneBook = state.phoneBook.filter(
+          ({ id }) => id !== action.payload
+        );
       })
       .addCase(updatePhoneNumber.pending, (state, action) => {
         state.loading = "pending";
@@ -54,14 +56,16 @@ export const phoneBookSlice = createSlice({
       })
       .addCase(updatePhoneNumber.fulfilled, (state, action) => {
         state.loading = "idle";
-        state.data[action.payload.id as PhoneNumberId] = {
-          ...action.payload,
-        };
+        const index = state.phoneBook.findIndex(
+          ({ id }) => id === action.payload.id
+        );
+        state.phoneBook.splice(index, 1, action.payload);
       });
   },
 });
 
-export const selectPhoneBook = (state: RootState) => state.phoneBook;
+export const selectPhoneBookState = (state: RootState) => state.phoneBook;
+
 export const selectLoading = (state: RootState) => state.phoneBook.loading;
 
 export default phoneBookSlice.reducer;

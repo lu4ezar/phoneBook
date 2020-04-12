@@ -7,16 +7,14 @@ export interface PhoneNumber {
   email: string;
 }
 
-export interface PhoneBook {
-  [id: string]: PhoneNumber | null;
-}
+export type PhoneBook = PhoneNumber[];
 
 export type Loading = "idle" | "pending";
 
 export type Error = string | null;
 
 export interface PhoneBookState {
-  data: PhoneBook;
+  phoneBook: PhoneBook;
   loading: Loading;
   error: Error;
 }

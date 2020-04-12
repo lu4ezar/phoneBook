@@ -1,12 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from "../../api";
-import { PhoneNumber, PhoneNumberId } from "../../interfaces";
+import { PhoneNumber, PhoneNumberId, PhoneBook } from "../../interfaces";
 
 export const fetchPhoneBook = createAsyncThunk(
   "phoneBook/fetchPhoneBook",
   async () => {
     const response = await api.fetchPhoneBook();
-    return response.json();
+    const rawPhoneBook = await response.json();
+    return Object.values(rawPhoneBook).filter(
+      (phoneNumber) => phoneNumber
+    ) as PhoneBook;
   }
 );
 
