@@ -1,7 +1,7 @@
 import React, { useReducer, FormEvent, SyntheticEvent } from "react";
 import { StyledForm } from "./styled";
 import { Reducer, State, Props } from "../../../interfaces/form";
-import { selectLoading } from "../phoneBookSlice";
+import { selectLoading } from "../selectors";
 import { useSelector } from "react-redux";
 
 const initialState: State = {

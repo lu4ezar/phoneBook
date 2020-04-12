@@ -1,13 +1,11 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
-import { RootState } from "../../store";
-import { PhoneBook, PhoneBookState, PhoneNumber } from "../../interfaces";
+import { createSlice } from "@reduxjs/toolkit";
+import { PhoneBook, PhoneBookState } from "../../interfaces";
 import {
   fetchPhoneBook,
   createPhoneNumber,
   deletePhoneNumber,
   updatePhoneNumber,
 } from "./asyncThunks";
-import { selectSearchString } from "../search/searchSlice";
 
 const initialState: PhoneBookState = {
   phoneBook: [] as PhoneBook,
@@ -64,22 +62,5 @@ export const phoneBookSlice = createSlice({
       });
   },
 });
-
-export const selectPhoneBookState = (state: RootState) => state.phoneBook;
-
-export const selectPhoneNumbers = (state: RootState) =>
-  state.phoneBook.phoneBook;
-
-export const selectLoading = (state: RootState) => state.phoneBook.loading;
-
-export const selectFiltered = createSelector(
-  [selectPhoneNumbers, selectSearchString],
-  (phoneBook, search) => {
-    const filterPhoneNumbers = (phoneNumber: PhoneNumber) =>
-      Object.values(phoneNumber).filter((value) => value.includes(search))
-        .length > 0;
-    return phoneBook.filter(filterPhoneNumbers);
-  }
-);
 
 export default phoneBookSlice.reducer;

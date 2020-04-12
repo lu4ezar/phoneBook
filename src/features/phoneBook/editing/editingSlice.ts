@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Editing } from "../../../interfaces";
-import { RootState } from "../../../store";
 
 export const editingId = createSlice({
   name: "editingId",
@@ -12,6 +11,5 @@ export const editingId = createSlice({
 });
 
 export const { setEditingId, dropEditingId } = editingId.actions;
-export const selectEditingId = (state: RootState) => state.editingId;
 
 export default editingId.reducer;

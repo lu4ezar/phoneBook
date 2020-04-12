@@ -2,17 +2,17 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Phone from "../phone";
 import Form from "../form";
-import { selectPhoneBookState, selectFiltered } from "../phoneBookSlice";
+import {
+  selectPhoneBookState,
+  selectFiltered,
+  selectEditingId,
+} from "../selectors";
 import {
   fetchPhoneBook,
   deletePhoneNumber,
   updatePhoneNumber,
 } from "../asyncThunks";
-import {
-  selectEditingId,
-  setEditingId,
-  dropEditingId,
-} from "../editing/editingSlice";
+import { setEditingId, dropEditingId } from "../editing/editingSlice";
 import { StyledUl } from "./styled";
 import { PhoneNumber, PhoneNumberId } from "../../../interfaces";
 
