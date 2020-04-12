@@ -4,7 +4,7 @@ import List from "../../features/phoneBook/list";
 import Form from "../../features/phoneBook/form";
 import { StyledApp } from "./styled";
 import { useDispatch } from "react-redux";
-import { createPhoneNumber } from "../../features/phoneBook/phoneBookSlice";
+import { createPhoneNumber } from "../../features/phoneBook/asyncThunks";
 import { PhoneNumber } from "../../interfaces";
 
 const App = () => {

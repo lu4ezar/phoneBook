@@ -7,7 +7,7 @@ import {
   selectPhoneBook,
   deletePhoneNumber,
   updatePhoneNumber,
-} from "../phoneBookSlice";
+} from "../asyncThunks";
 import {
   editingSelector,
   setEditingId,
