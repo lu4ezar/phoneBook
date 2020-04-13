@@ -11,7 +11,14 @@ const Input = () => {
     const { value } = e.currentTarget as HTMLInputElement;
     dispatch(setSearchString(value));
   };
-  return <input value={value} onChange={handleChange} placeholder="search" />;
+  return (
+    <input
+      type="search"
+      value={value}
+      onChange={handleChange}
+      placeholder="search"
+    />
+  );
 };
 
 export default Input;
