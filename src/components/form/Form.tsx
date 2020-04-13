@@ -1,4 +1,5 @@
 import React, { useReducer, FormEvent, SyntheticEvent } from "react";
+import Octicon, { Clock, Plus, Sync, X } from "@primer/octicons-react";
 import { StyledForm } from "./styled";
 import { Reducer, State, Props } from "../../interfaces/form";
 import { selectLoading } from "../../redux/selectors";
@@ -40,16 +41,11 @@ const Form = ({
     dispatch({ type: "reset" });
   };
 
-  const submitText =
-    loading === "pending"
-      ? "Wait..."
-      : isEditing
-      ? "Save changes"
-      : "Add phone number";
+  const submitIcon = loading === "pending" ? Clock : isEditing ? Sync : Plus;
   const disabled = !phone || !name || !email;
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit} className={isEditing ? "editing" : ""}>
       <input
         name="phone"
         type="tel"
@@ -71,8 +67,20 @@ const Form = ({
         placeholder="email"
         onChange={onChange}
       />
-      {isEditing && <input type="button" value="Cancel" onClick={onCancel} />}
-      <input type="submit" value={submitText} disabled={disabled} />
+      <div className="quarter">
+        {isEditing && (
+          <span onClick={onCancel} title="cancel">
+            <Octicon icon={X} size="medium" />
+          </span>
+        )}
+        <span
+          className={disabled ? "disabled" : ""}
+          onClick={disabled ? () => {} : handleSubmit}
+          title="submit"
+        >
+          <Octicon icon={submitIcon} size="medium" />
+        </span>
+      </div>
     </StyledForm>
   );
 };
