@@ -2,7 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { PhoneNumber } from "../interfaces";
 
-const selectPhoneNumbers = (state: RootState) => state.phoneBook.phoneBook;
+const selectPhoneNumbers = (state: RootState) => state.phoneBook;
 
 export const selectPhoneBookState = (state: RootState) => state.phoneBook;
 
@@ -14,7 +14,7 @@ export const selectEditingId = (state: RootState) => state.editingId;
 
 export const selectFiltered = createSelector(
   [selectPhoneNumbers, selectSearchString],
-  (phoneBook, search) => {
+  ({ phoneBook }, search) => {
     const filterPhoneNumbers = (phoneNumber: PhoneNumber) => {
       const phoneNumberKeys = Object.keys(phoneNumber);
       const filteredPhoneNumberKeys = phoneNumberKeys.filter((key) => {

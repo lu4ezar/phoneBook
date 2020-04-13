@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import phoneBookReducer from "./slices/phoneBookSlice";
-import editingIdReducer from "./slices/phoneBook";
+import phoneBookReducer from "./slices/phoneBook";
+import editingIdReducer from "./slices/editingSlice";
 import searchReducer from "./slices/searchSlice";
 
 export const store = configureStore({

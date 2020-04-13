@@ -12,7 +12,7 @@ import {
   deletePhoneNumber,
   updatePhoneNumber,
 } from "../../redux/slices/phoneBook/asyncActions";
-import { setEditingId, dropEditingId } from "../../redux/slices/phoneBook";
+import { setEditingId, dropEditingId } from "../../redux/slices/editingSlice";
 import { StyledUl } from "./styled";
 import { PhoneNumber, PhoneNumberId } from "../../interfaces";
 
