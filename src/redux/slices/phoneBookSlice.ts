@@ -5,7 +5,7 @@ import {
   createPhoneNumber,
   deletePhoneNumber,
   updatePhoneNumber,
-} from "../asyncThunks";
+} from "./phoneBook/asyncActions";
 
 const initialState: PhoneBookState = {
   phoneBook: [] as PhoneBook,

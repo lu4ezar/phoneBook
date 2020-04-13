@@ -4,7 +4,7 @@ import List from "../list";
 import Form from "../form";
 import { StyledApp } from "./styled";
 import { useDispatch } from "react-redux";
-import { createPhoneNumber } from "../../redux/asyncThunks";
+import { createPhoneNumber } from "../../redux/slices/phoneBook/asyncActions";
 import { PhoneNumber } from "../../interfaces";
 
 const App = () => {

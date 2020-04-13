@@ -11,8 +11,8 @@ import {
   fetchPhoneBook,
   deletePhoneNumber,
   updatePhoneNumber,
-} from "../../redux/asyncThunks";
-import { setEditingId, dropEditingId } from "../../redux/slices/editingSlice";
+} from "../../redux/slices/phoneBook/asyncActions";
+import { setEditingId, dropEditingId } from "../../redux/slices/phoneBook";
 import { StyledUl } from "./styled";
 import { PhoneNumber, PhoneNumberId } from "../../interfaces";
 
