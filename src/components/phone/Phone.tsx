@@ -1,5 +1,5 @@
 import React from "react";
-import Octicon, { Trashcan, Pencil } from "@primer/octicons-react";
+import { TrashIcon, PencilIcon } from "@primer/octicons-react";
 import { StyledLi } from "./styled";
 import { Props } from "../../interfaces/phone";
 
@@ -12,10 +12,10 @@ const Phone = ({ data, onDelete, onEdit }: Props) => {
       <span>{email}</span>
       <span className="buttons">
         <div onClick={onDelete} title="delete">
-          <Octicon icon={Trashcan} size="medium" />
+          <TrashIcon size="medium" />
         </div>
         <div onClick={onEdit} title="edit">
-          <Octicon icon={Pencil} size="medium" />
+          <PencilIcon size="medium" />
         </div>
       </span>
     </StyledLi>
