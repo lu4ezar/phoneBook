@@ -1,5 +1,5 @@
 import React, { useReducer, FormEvent, SyntheticEvent } from "react";
-import Octicon, { Clock, Plus, Sync, X } from "@primer/octicons-react";
+import { ClockIcon, PlusIcon, SyncIcon, XIcon } from "@primer/octicons-react";
 import { StyledForm } from "./styled";
 import { Reducer, State, Props } from "../../interfaces/form";
 import { selectLoading } from "../../redux/selectors";
@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 const initialState: State = {
   name: "",
   phone: "",
-  email: "",
+  email: ""
 };
 
 const reducer = (state: State, { field, value, type }: Reducer) => {
@@ -17,7 +17,7 @@ const reducer = (state: State, { field, value, type }: Reducer) => {
   }
   return {
     ...state,
-    [field as string]: value,
+    [field as string]: value
   };
 };
 
@@ -25,7 +25,7 @@ const Form = ({
   data = initialState,
   isEditing = false,
   onSubmit,
-  onCancel,
+  onCancel
 }: Props) => {
   const [state, dispatch] = useReducer(reducer, data);
   const { name, phone, email } = state;
@@ -41,7 +41,6 @@ const Form = ({
     dispatch({ type: "reset" });
   };
 
-  const submitIcon = loading === "pending" ? Clock : isEditing ? Sync : Plus;
   const disabled = !phone || !name || !email;
 
   return (
@@ -70,7 +69,7 @@ const Form = ({
       <div className="quarter">
         {isEditing && (
           <span onClick={onCancel} title="cancel">
-            <Octicon icon={X} size="medium" />
+            <XIcon size="medium" />
           </span>
         )}
         <span
@@ -78,7 +77,13 @@ const Form = ({
           onClick={disabled ? () => {} : handleSubmit}
           title="submit"
         >
-          <Octicon icon={submitIcon} size="medium" />
+          {loading === "pending" ? (
+            <ClockIcon size="medium" />
+          ) : isEditing ? (
+            <SyncIcon size="medium" />
+          ) : (
+            <PlusIcon size="medium" />
+          )}
         </span>
       </div>
     </StyledForm>
