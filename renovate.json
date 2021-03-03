@@ -1,5 +1,5 @@
 {
-  “masterIssue”: true,
+  "masterIssue": true,
   "extends": ["config:base", "group:monorepos"],
   "includePaths": ["package.json"],
   "schedule": ["every month"],
