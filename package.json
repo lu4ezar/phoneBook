@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "@primer/octicons-react": "12.1.0",
-    "@reduxjs/toolkit": "1.6.2",
+    "@reduxjs/toolkit": "1.9.0",
     "@types/jest": "26.0.24",
     "@types/node": "12.20.55",
     "@testing-library/jest-dom": "5.14.1",
